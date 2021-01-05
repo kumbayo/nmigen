@@ -21,6 +21,10 @@ class UnusedElaboratable(UnusedMustUse):
 class Elaboratable(MustUse, metaclass=ABCMeta):
     _MustUse__warning = UnusedElaboratable
 
+    @abstractmethod
+    def elaborate(self, platform):
+        pass # :nocov:
+
 
 class DriverConflict(UserWarning):
     pass
